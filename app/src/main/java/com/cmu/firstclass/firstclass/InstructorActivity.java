@@ -1,24 +1,43 @@
 package com.cmu.firstclass.firstclass;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 
-public class login extends ActionBarActivity {
+public class InstructorActivity extends ActionBarActivity implements View.OnClickListener {
+
+    TextView tvCourse;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.instructor_page);
+
+        tvCourse=(TextView)findViewById(R.id.CA1);
+        tvCourse.setOnClickListener(this);
+
+
     }
 
 
     @Override
+    public void onClick(View v) {
+
+        i=new Intent(this,CourseActivity.class);
+        startActivity(i);
+
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
+        getMenuInflater().inflate(R.menu.menu_instructor, menu);
         return true;
     }
 

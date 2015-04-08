@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bart Simpson"
+                android:layout_gravity="center"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:layout_marginTop="7dp"
+                android:id="@+id/BS" />
+
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="145dp"
+            android:layout_height="145dp"
+            android:layout_gravity="center"
+            android:src="@drawable/user1"
+            android:id="@+id/bob"
+            android:layout_marginTop="10dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Department"
+                android:layout_gravity="center"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_marginTop="7dp"
+                android:id="@+id/dpt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Electrical and Computer Engineering"
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:layout_marginTop="7dp"
+                android:id="@+id/dptName" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Courses Attended"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:id="@+id/CA" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="195dp">
+
+            </ListView>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Infomation"
+                android:layout_gravity="center"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_marginTop="7dp"
+                android:id="@+id/CI" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email: BartSimpson@andrew.cmu.edu"
+                android:layout_gravity="center"
+                android:textSize="13dp"
+                android:layout_marginTop="7dp"
+                android:id="@+id/Email" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Homepage:"
+                android:layout_gravity="center"
+                android:textSize="13dp"
+                android:layout_marginTop="7dp"
+                android:id="@+id/HPlink" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Linkedin Link:"
+                android:layout_gravity="center"
+                android:textSize="13dp"
+                android:layout_marginTop="7dp"
+                android:id="@+id/Linkedinlink" />
+
+        </LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>

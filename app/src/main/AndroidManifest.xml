@@ -8,13 +8,48 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".login"
+            android:name=".LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".SubmitReview"
+            android:label="SubmitReview"></activity>
+        <activity
+            android:name=".DepartmentListActivity"
+            android:label="@string/title_activity_department_list" >
+        </activity>
+
+        <activity
+            android:name=".DepartmentCourseListActivity"
+            android:label="@string/title_activity_department_course_list" >
+        </activity>
+        <activity
+            android:name=".Register"
+            android:label="@string/title_register" >
+        </activity>
+        <activity
+            android:name=".AdminPage"
+            android:label="@string/admin_management" >
+        </activity>
+        <activity
+            android:name=".CourseActivity"
+            android:label="CourseActivity" >
+        </activity>
+        <activity
+            android:name=".InstructorActivity"
+            android:label="Instructor Page" >
+        </activity>
+        <activity
+            android:name=".UserProfileActivity"
+            android:label="Bart" >
+        </activity>
+        <activity
+            android:name=".UserProfile"
+            android:label="Lis" >
         </activity>
     </application>
 
