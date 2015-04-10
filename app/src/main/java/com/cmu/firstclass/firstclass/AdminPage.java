@@ -14,6 +14,8 @@ import android.os.Bundle;
     //add by lai wei again on april 10
 
     //add by nianzu again on april 10th
+
+    // jialiang
 public class AdminPage extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
