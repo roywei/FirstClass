@@ -8,6 +8,8 @@ import android.os.Bundle;
  */
 
 //add by lai wei
+
+    //add by nianzu
 public class AdminPage extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
