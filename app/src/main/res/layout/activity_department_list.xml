@@ -7,7 +7,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/pikachu_background_bitmap"
+        android:background="@color/blue_2"
         tools:context="com.firstclass_coursereview.firstclass.DepartmentListActivity">
 
         <ListView
