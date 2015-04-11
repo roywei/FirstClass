@@ -15,7 +15,6 @@ public class CourseActivity extends Activity implements View.OnClickListener {
 
     ImageView instructorImage;
     ImageView lisaImage;
-    ImageView bartImage;
     Intent i;
 
 
@@ -25,11 +24,9 @@ public class CourseActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.course_page);
 
         instructorImage=(ImageView)findViewById(R.id.bob);
-        bartImage=(ImageView)findViewById(R.id.user1Img);
         lisaImage=(ImageView)findViewById(R.id.user2Img);
 
         instructorImage.setOnClickListener(this);
-        bartImage.setOnClickListener(this);
         lisaImage.setOnClickListener(this);
 
         Button submitReview = (Button)findViewById(R.id.SR);
@@ -53,10 +50,7 @@ public class CourseActivity extends Activity implements View.OnClickListener {
                 i = new Intent(this, InstructorActivity.class);
                 startActivity(i);
                 break;
-            case R.id.user1Img:
-                i = new Intent(this, UserProfileActivity.class);
-                startActivity(i);
-                break;
+
             case R.id.user2Img:
                 i = new Intent(this, UserProfile.class);
                 startActivity(i);

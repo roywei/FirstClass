@@ -44,10 +44,6 @@
             android:label="Instructor Page" >
         </activity>
         <activity
-            android:name=".UserProfileActivity"
-            android:label="Bart" >
-        </activity>
-        <activity
             android:name=".UserProfile"
             android:label="Lis" >
         </activity>
