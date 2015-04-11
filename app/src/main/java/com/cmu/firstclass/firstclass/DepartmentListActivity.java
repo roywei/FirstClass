@@ -26,7 +26,9 @@ public class DepartmentListActivity extends Activity {
                 , "christopher robin"};
 
         ListAdapter departmentListAdapter = new ImageTextListArrayAdapter(this, null, array);
+
         ListView listView = (ListView) findViewById(R.id.departmentListView);
+
         listView.setAdapter(departmentListAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
