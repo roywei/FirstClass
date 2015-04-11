@@ -22,7 +22,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_gravity="start"
-        android:background="@color/orange"
+        android:background="@color/orange_2"
         android:clickable="true">
 
         <LinearLayout

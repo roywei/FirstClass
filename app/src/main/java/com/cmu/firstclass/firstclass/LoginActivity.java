@@ -3,10 +3,13 @@ package com.cmu.firstclass.firstclass;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class LoginActivity extends Activity {
@@ -15,6 +18,16 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        //hide keyboard on create
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        //to get screen pixel size
+        int height = dm.heightPixels;
+        int width =dm.widthPixels;
+        Toast.makeText(this, String.valueOf(height)+ " " + String.valueOf(width),Toast.LENGTH_LONG).show();
 
         Button loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -36,14 +49,14 @@ public class LoginActivity extends Activity {
             }
         });
 
-        Button adminButton = (Button) findViewById(R.id.admin_page);
+        /*Button adminButton = (Button) findViewById(R.id.admin_page);
         adminButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, AdminPage.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     @Override
