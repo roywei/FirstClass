@@ -3,23 +3,22 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_2">
+    android:background="@color/blue_1">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Department List"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:gravity="center_horizontal"
         android:textColor="@color/orange_3"
         android:textStyle="bold"
-        android:layout_marginBottom="10dp"
 
         />
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/transparent_full"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         tools:context="com.firstclass_coursereview.firstclass.DepartmentListActivity">
 
         <ListView
@@ -28,8 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            android:background="@color/yellow_1"
-            android:divider="@color/blue_2"
+            android:background="@color/blue_5"
+            android:divider="@color/blue_1"
             android:dividerHeight="10dp"
             />
 

@@ -34,7 +34,7 @@ public class ImageTextListArrayAdapter extends ArrayAdapter{
 
         // TODO DELETE the following demonstration code
         departmentTextView.setText((String) getItem(position));
-        departmentImageView.setImageResource(R.drawable.ece);
+        departmentImageView.setImageResource(R.drawable.environ);
 
         // getting phone size
         WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
