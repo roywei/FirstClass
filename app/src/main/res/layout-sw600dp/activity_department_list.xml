@@ -2,18 +2,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/blue_2">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Department List"
+        android:textSize="50dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/orange_3"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
 
+        />
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/pikachu_background_bitmap"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent_full"
+        android:layout_marginTop="50dp"
         tools:context="com.firstclass_coursereview.firstclass.DepartmentListActivity">
 
         <ListView
             android:id="@+id/departmentListView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/yellow_1"
+            android:divider="@color/blue_2"
+            android:dividerHeight="10dp"
+            />
 
     </FrameLayout>
 
