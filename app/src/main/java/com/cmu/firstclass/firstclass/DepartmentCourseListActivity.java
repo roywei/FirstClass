@@ -1,8 +1,8 @@
 package com.cmu.firstclass.firstclass;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class DepartmentCourseListActivity extends ActionBarActivity {
+public class DepartmentCourseListActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
