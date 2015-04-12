@@ -8,6 +8,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 public class CourseActivity extends Activity implements View.OnClickListener {
@@ -16,6 +21,7 @@ public class CourseActivity extends Activity implements View.OnClickListener {
     ImageView instructorImage;
     ImageView lisaImage;
     Intent i;
+    ListView lvcomment;
 
 
     @Override
@@ -38,6 +44,17 @@ public class CourseActivity extends Activity implements View.OnClickListener {
             }
         });
 
+
+
+
+        String[] listInfo={"this course is great!","This course freaking sucks!","I love this course!","I hate it!"};
+
+        List<String> infoList = Arrays.asList(listInfo);
+
+        ListAdapter listInfoAdapter=new CommentAdapter(this,infoList);
+        ListView listView=(ListView)findViewById(R.id.lvComment);
+        listView.setAdapter(listInfoAdapter);
+
     }
 
 
@@ -55,10 +72,13 @@ public class CourseActivity extends Activity implements View.OnClickListener {
                 i = new Intent(this, UserProfile.class);
                 startActivity(i);
                 break;
-
-
-
         }
+
+
+
+
+
+
 
 
     }
