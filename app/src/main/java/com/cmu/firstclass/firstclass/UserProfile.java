@@ -6,11 +6,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.cmu.firstclass.firstclass.core.IDNameDuple;
 
-public class UserProfile extends Activity implements View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
 
+
+public class UserProfile extends Activity {
 
     TextView tvCourse;
     Intent i;
@@ -20,17 +25,12 @@ public class UserProfile extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_page_layout);
 
-        tvCourse=(TextView)findViewById(R.id.CA1);
-        tvCourse.setOnClickListener(this);
+        List<IDNameDuple> courseIdNameList = new ArrayList<>();
+        courseIdNameList.add(new IDNameDuple("1", "CS"));
+        TextArrowListArrayAdapter listArrayAdapter = new TextArrowListArrayAdapter(this, courseIdNameList);
 
-    }
-
-    @Override
-    public void onClick(View v) {
-
-        i=new Intent(this,CourseActivity.class);
-        startActivity(i);
-
+        ListView listView = (ListView) findViewById(R.id.userCourseAttendedListView);
+        listView.setAdapter(listArrayAdapter);
     }
 
     @Override
