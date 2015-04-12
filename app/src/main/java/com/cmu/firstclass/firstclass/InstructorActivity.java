@@ -6,10 +6,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.cmu.firstclass.firstclass.core.IDNameDuple;
 
-public class InstructorActivity extends Activity implements View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class InstructorActivity extends Activity{
 
     TextView tvCourse;
     Intent i;
@@ -19,19 +25,12 @@ public class InstructorActivity extends Activity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_page);
 
-        tvCourse=(TextView)findViewById(R.id.CA1);
-        tvCourse.setOnClickListener(this);
+        List<IDNameDuple> courseIdNameList = new ArrayList<>();
+        courseIdNameList.add(new IDNameDuple("2", "baobi de ke"));
+        TextArrowListArrayAdapter listArrayAdapter = new TextArrowListArrayAdapter(this, courseIdNameList);
 
-
-    }
-
-
-    @Override
-    public void onClick(View v) {
-
-        i=new Intent(this,CourseActivity.class);
-        startActivity(i);
-
+        ListView listView = (ListView) findViewById(R.id.instructingCourseListView);
+        listView.setAdapter(listArrayAdapter);
     }
 
     @Override

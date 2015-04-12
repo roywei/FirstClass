@@ -75,17 +75,6 @@ public class CourseActivity extends Activity implements View.OnClickListener {
         }
     }
 
-
-
-
-    public void onClick_CommentAvatar(){
-        Intent  i=new Intent(CourseActivity.this,UserProfile.class);
-        startActivity(i);
-    }
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
