@@ -95,13 +95,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginLeft="10dp"
 
             >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:text="Average Rating:"
                 android:textSize="30sp"
@@ -109,9 +108,10 @@
                 />
 
             <RatingBar
+                android:id="@+id/ratingBarAvgRating"
+
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
-                android:id="@+id/ratingBarAvgRating"
                 style="?android:attr/ratingBarStyleSmall"
                 android:rating="5"
                 android:numStars="5"
@@ -125,311 +125,68 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="50dp"
-            android:layout_gravity="left"
-            android:layout_marginRight="50dp">
+            android:layout_marginLeft="10dp"
+            android:gravity="left"
+           >
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:text="Average GPA:"
             android:textSize="30sp"
             android:textStyle="italic"
-            android:layout_weight="1"
             android:id="@+id/tvGPA" />
+
+        <RatingBar
+
+            android:id="@+id/ratingBarAvgScore"
+
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            style="?android:attr/ratingBarStyleSmall"
+            android:rating="5"
+            android:numStars="5"
+            />
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="left"
+            >
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="Average Workload(hrs/w):"
+            android:textSize="30dp"
+            android:layout_marginTop="3dp"
+            android:textStyle="italic"
+            android:id="@+id/tvAW" />
 
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="45dp"
-            android:id="@+id/ratingBarAvgScore"
-            android:rating="4"
+            android:id="@+id/ratingBarWL"
+            android:rating="4.5"
             android:numStars="5"
             style="?android:attr/ratingBarStyleSmall"
-            android:paddingRight="45dp"
-            android:layout_weight="1"/>
-            </LinearLayout>
-
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="135dp"
-        android:orientation="vertical"
-        android:layout_marginTop="5dp">
-
-
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="105dp"
-           android:orientation="vertical"
-           android:weightSum="1"
-           android:layout_marginTop="3dp">
-
-
-
-           <LinearLayout
-               android:layout_width="390dp"
-               android:layout_height="30dp"
-               android:orientation="horizontal"
-               android:layout_marginRight="20dp"
-               android:layout_gravity="right">
-
-
-               <TextView
-                   android:layout_width="35dp"
-                   android:layout_height="25dp"
-                   android:text="4.0"
-                   android:textSize="17dp"
-                   android:textStyle="italic"
-                   android:id="@+id/tvAG"
-                   android:gravity="right"
-                   android:layout_marginTop="2dp"
-                   android:layout_marginLeft="10dp" />
-
-           </LinearLayout>
-
-           <LinearLayout
-               android:layout_width="390dp"
-               android:layout_height="30dp"
-               android:orientation="horizontal"
-               android:layout_marginRight="20dp"
-               android:layout_gravity="right">
-
-               <TextView
-                   android:layout_width="200dp"
-                   android:layout_height="25dp"
-                   android:text="Average Workload(hrs/w):"
-                   android:textSize="17dp"
-                   android:layout_marginTop="3dp"
-                   android:textStyle="italic"
-                   android:id="@+id/tvAW" />
-
-               <RatingBar
-                   android:layout_width="wrap_content"
-                   android:layout_height="25dp"
-                   android:id="@+id/ratingBarWL"
-                   android:rating="4.5"
-                   android:numStars="5"
-                   style="?android:attr/ratingBarStyleSmall"
-                   android:layout_marginTop="7dp"
-                   android:layout_marginLeft="4dp" />
-               <TextView
-                   android:layout_width="35dp"
-                   android:layout_height="25dp"
-                   android:text="4.5"
-                   android:textSize="17dp"
-                   android:textStyle="italic"
-                   android:id="@+id/tvWL"
-                   android:gravity="right"
-                   android:layout_marginTop="2dp"
-                   android:layout_marginLeft="10dp" />
-
-           </LinearLayout>
-
-
-       </LinearLayout>
-
-
-
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:orientation="vertical"
-        android:id="@+id/ll">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Comments"
-            android:textSize="25dp"
-            android:layout_marginLeft="10dp" />
-
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="4dp" />
+</LinearLayout>
 
         <ListView
+            android:id="@+id/lvComment"
             android:layout_width="match_parent"
-            android:layout_height="10dp">
+            android:layout_height="wrap_content">
 
 
-            </ListView>
+        </ListView>
+</LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:id="@+id/user1Img"
-                android:layout_marginLeft="25dp"
-                android:src="@drawable/user1"
-                android:clickable="true" />
-
-
-
-            <LinearLayout
-                android:layout_width="450dp"
-                android:layout_height="100dp"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="User 1"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="1dp"
-                        android:textStyle="bold"
-                        android:id="@+id/user1" />
-
-                    <RatingBar
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="?android:attr/ratingBarStyleSmall"
-                        android:numStars="5"
-                        android:rating="3.5"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp" />
-
-                    <ImageButton
-                        android:layout_width="27dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="50dp"
-                        android:id="@+id/like"
-                        android:src="@drawable/likesign"
-                        android:layout_marginTop="5dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="989"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="1dp"
-                        android:id="@+id/likes1" />
-
-                </LinearLayout>
-
-
-
-
-
-
-
-
-                <TextView
-                    android:layout_width="400dp"
-                    android:layout_height="70dp"
-                    android:text="Ay, caramba! This course is so amazing,  you all gotta take this!!"
-                    android:id="@+id/userRv"
-                    android:layout_marginBottom="20dp" />
-
-
-            </LinearLayout>
-
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-
-            <ImageButton
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:id="@+id/user2Img"
-                android:layout_marginLeft="25dp"
-                android:clickable="true"
-                android:background="@drawable/user2" />
-
-
-
-            <LinearLayout
-                android:layout_width="450dp"
-                android:layout_height="100dp"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="User 2"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="1dp"
-                        android:textStyle="bold"
-                        android:id="@+id/user2" />
-
-                    <RatingBar
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="?android:attr/ratingBarStyleSmall"
-                        android:numStars="5"
-                        android:rating="2"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"
-                        android:id="@+id/RB" />
-
-                    <ImageButton
-                        android:layout_width="27dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="50dp"
-                        android:id="@+id/like2"
-                        android:src="@drawable/likesign"
-                        android:layout_marginTop="5dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="23"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="1dp"
-                        android:id="@+id/likes2" />
-
-                </LinearLayout>
-
-
-
-
-
-
-
-
-                <TextView
-                    android:layout_width="400dp"
-                    android:layout_height="70dp"
-                    android:text="Hey everybody!  This course is so amazing,  you all gotta take this!!"
-                    android:id="@+id/userRv2"
-                    android:layout_marginBottom="20dp" />
-
-
-            </LinearLayout>
-
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_gravity="center">
 
     <Button
