@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/blue_3">
+
+<LinearLayout
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity="center">
 
@@ -21,43 +31,41 @@
 
         </LinearLayout>
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:weightSum="1"
         android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instructor"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp" />
+
         <ImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="80dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
             android:src="@drawable/instructor_bob"
             android:id="@+id/bob"
             android:clickable="true" />
-        <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="125dp"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center">
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/InstructorName"
-                android:textSize="30dp"
-                android:id="@+id/InstructorName" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Instructor"
-                android:textSize="30dp"
-                android:textStyle="italic" />
-        </LinearLayout>
+                android:textSize="20sp"
+                android:id="@+id/InstructorName"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp" />
+
+
     </LinearLayout>
 
 
@@ -70,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="About"
-            android:textSize="25dp"
+            android:textSize="20sp"
             android:layout_marginLeft="10dp" />
         <TextView
             android:layout_width="wrap_content"
@@ -91,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Statistics"
-            android:textSize="25dp"
+            android:textSize="20sp"
             android:layout_marginLeft="10dp" />
 
        <LinearLayout
@@ -102,7 +110,7 @@
            android:layout_marginTop="3dp">
 
            <LinearLayout
-               android:layout_width="390dp"
+               android:layout_width="wrap_content"
                android:layout_height="30dp"
                android:orientation="horizontal"
                android:layout_marginRight="20dp"
@@ -138,7 +146,7 @@
            </LinearLayout>
 
            <LinearLayout
-               android:layout_width="390dp"
+               android:layout_width="wrap_content"
                android:layout_height="30dp"
                android:orientation="horizontal"
                android:layout_marginRight="20dp"
@@ -176,7 +184,7 @@
            </LinearLayout>
 
            <LinearLayout
-               android:layout_width="390dp"
+               android:layout_width="wrap_content"
                android:layout_height="30dp"
                android:orientation="horizontal"
                android:layout_marginRight="20dp"
@@ -232,7 +240,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Comments"
-            android:textSize="25dp"
+            android:textSize="20sp"
             android:layout_marginLeft="10dp" />
 
 
@@ -244,7 +252,7 @@
             </ListView>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="120dp"
             android:orientation="horizontal">
 
@@ -312,8 +320,8 @@
 
 
                 <TextView
-                    android:layout_width="400dp"
-                    android:layout_height="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Ay, caramba! This course is so amazing,  you all gotta take this!!"
                     android:id="@+id/userRv"
                     android:layout_marginBottom="20dp" />
@@ -424,11 +432,14 @@
         android:layout_gravity="center"
         android:text="Submit Review"
         android:id="@+id/SR"
-        android:layout_marginLeft="240dp"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:gravity="center|center_horizontal"
+        android:layout_weight="1" />
     </LinearLayout>
 
 
 
 
 </LinearLayout>
+
+    </ScrollView>
