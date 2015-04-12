@@ -1,6 +1,7 @@
 package com.cmu.firstclass.firstclass;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,9 +28,14 @@ public class CommentAdapter extends ArrayAdapter {
 
 
         ImageView ivComment=(ImageView)view.findViewById(R.id.ivComment);
+        ivComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(CommentAdapter.this.getContext(),UserProfile.class);
+                CommentAdapter.this.getContext().startActivity(i);
+            }
+        });
         TextView tvComment = (TextView) view.findViewById(R.id.tvComment);
-
-
 
         // TODO get image from server
         // TODO get text from server
