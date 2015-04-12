@@ -32,6 +32,13 @@ public class CourseActivity extends Activity implements View.OnClickListener {
         instructorImage=(ImageView)findViewById(R.id.bob);
         lisaImage=(ImageView)findViewById(R.id.user2Img);
 
+        instructorImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CourseActivity.this,InstructorActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Button submitReview = (Button)findViewById(R.id.SR);
         submitReview.setOnClickListener(new View.OnClickListener() {
