@@ -87,26 +87,15 @@
                 android:orientation="vertical"
                 android:id="@+id/calayout">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="18641 Java for Smart Phone Development"
-                    android:textSize="25dp"
-                    android:id="@+id/CA1"
-                    android:layout_gravity="center"
-                    android:clickable="true" />
 
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="14741 Mobile Game Development"
-                    android:textSize="25dp"
-                    android:id="@+id/CA2"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp" />
-                </LinearLayout>
+                <ListView
+                    android:id="@+id/userCourseAttendedListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp">
+                </ListView>
+            </LinearLayout>
 
 
         </LinearLayout>
