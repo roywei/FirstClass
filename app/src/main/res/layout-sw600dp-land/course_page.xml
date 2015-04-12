@@ -3,16 +3,16 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_3">
+    android:background="@color/blue_3"
+    >
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="600dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:layout_weight="3"
         >
 
         <TextView
@@ -101,10 +101,10 @@
             >
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="Average Rating:"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="italic"
                 />
 
@@ -130,10 +130,10 @@
             android:gravity="left"
             >
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="Average GPA:"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="italic"
                 android:id="@+id/tvGPA" />
 
@@ -156,10 +156,10 @@
             android:layout_gravity="left"
             >
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="Average Workload(hrs/w):"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 android:layout_marginTop="3dp"
                 android:textStyle="italic"
                 android:id="@+id/tvAW" />
@@ -178,30 +178,34 @@
     </LinearLayout>
 
 <LinearLayout
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_weight="1">
+    android:gravity="center">
 
 
-    <ListView
-        android:id="@+id/lvComment"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="450dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp">
+        <ListView
+            android:id="@+id/lvComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
-    </ListView>
-
+        </ListView>
+    </LinearLayout>
 
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:text="Submit Review"
-            android:id="@+id/SR"
-            android:layout_marginLeft="240dp"
-            android:layout_marginBottom="10dp" />
+            android:id="@+id/SR"/>
 </LinearLayout>
 
 </LinearLayout>

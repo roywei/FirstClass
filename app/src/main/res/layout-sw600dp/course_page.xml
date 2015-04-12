@@ -100,10 +100,10 @@
             >
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="Average Rating:"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="italic"
                 />
 
@@ -129,10 +129,10 @@
             android:gravity="left"
            >
         <TextView
-            android:layout_width="350dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="Average GPA:"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="italic"
             android:id="@+id/tvGPA" />
 
@@ -155,10 +155,10 @@
             android:layout_gravity="left"
             >
         <TextView
-            android:layout_width="350dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="Average Workload(hrs/w):"
-            android:textSize="30dp"
+            android:textSize="20sp"
             android:layout_marginTop="3dp"
             android:textStyle="italic"
             android:id="@+id/tvAW" />
@@ -174,32 +174,32 @@
             android:layout_marginLeft="4dp" />
 </LinearLayout>
 
-        <ListView
-            android:id="@+id/lvComment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-
-        </ListView>
-</LinearLayout>
 
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center">
+    android:layout_height="280dp"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+    <ListView
+        android:id="@+id/lvComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Submit Review"
-        android:id="@+id/SR"
-        android:layout_marginLeft="240dp"
-        android:layout_marginBottom="10dp" />
+
+    </ListView>
+
+
     </LinearLayout>
 
-
-
+       <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit Review"
+            android:id="@+id/SR"
+            android:layout_marginLeft="240dp"
+            android:layout_marginBottom="10dp" />
+    </LinearLayout>
 
 </LinearLayout>
