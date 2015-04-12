@@ -17,12 +17,9 @@ import java.util.List;
 
 public class CourseActivity extends Activity implements View.OnClickListener {
 
-
     ImageView instructorImage;
     ImageView lisaImage;
     Intent i;
-    ListView lvcomment;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +28,6 @@ public class CourseActivity extends Activity implements View.OnClickListener {
 
         instructorImage=(ImageView)findViewById(R.id.bob);
         lisaImage=(ImageView)findViewById(R.id.user2Img);
-
 
         Button submitReview = (Button)findViewById(R.id.SR);
         submitReview.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +54,6 @@ public class CourseActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
 
         switch (v.getId()){
             case R.id.bob:
