@@ -15,7 +15,7 @@
     <string name="grade">Grade:</string>
     <string name="course_content">Course Content</string>
     <string name="out_of_5_text">/5.0</string>
-    <string name="hrs_per_week">Hours/Week</string>
+    <string name="hrs_per_week">hrs/wk</string>
     <string name="hint_grade">5.0</string>
     <string name="hint_workload">15.0</string>
     <string name="hint_comments">Leave your comments here:</string>
