@@ -10,7 +10,9 @@
         android:id="@+id/ivComment"
         android:layout_width="100dp"
         android:layout_height="100dp"
-         />
+        android:onClick="onClick_CommentAvatar"
+
+        />
 
     <TextView
         android:id="@+id/tvComment"

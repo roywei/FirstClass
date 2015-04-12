@@ -18,7 +18,7 @@ public class UserProfile extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_page_lisa);
+        setContentView(R.layout.user_page_layout);
 
         tvCourse=(TextView)findViewById(R.id.CA1);
         tvCourse.setOnClickListener(this);

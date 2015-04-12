@@ -1,232 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:weightSum="1">
-    <!-- Page title-->
+    android:layout_width="match_parent"
+    android:background="@color/blue_2">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/submit_review"
-        android:id="@+id/submit_review"
-        android:layout_gravity="center"
-        android:textSize="50sp"
-        android:padding="10dp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/course_content"
-        android:id="@+id/course_content"
-        android:textSize="40sp"
-        android:padding="10dp"
-        />
-
-    <!-- Input rating area-->
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="1">
+        android:layout_height="match_parent">
+        <!-- Page title-->
 
         <TextView
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:text="@string/overall_rating_text"
-            android:id="@+id/overall_rating"
-            android:padding="10dp"
-
-            android:textSize="30sp"/>
-
-        <RatingBar
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:id="@+id/ratingBar_1"
-            android:padding="10dp"
-
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_weight="0.09" />
-
-    </LinearLayout>
-
-
-    <!-- Input gpa area-->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="@string/grade"
-            android:id="@+id/grade_text"
-            android:padding="10dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/submit_review"
+            android:id="@+id/submit_review"
+            android:layout_gravity="center"
+            android:textSize="35sp"
+            android:padding="10dp" />
 
-            android:textSize="30sp"/>
-        <EditText android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:id="@+id/grade_input"
-            android:hint="@string/hint_grade"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/course_content"
+            android:id="@+id/course_content"
+            android:textSize="22sp"
+            android:padding="10dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="@color/white" />
+
+        <!-- Input rating area-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/overall_rating_text"
+                android:id="@+id/overall_rating"
+                android:padding="10dp"
+
+                android:textSize="20sp" />
+
+            <RatingBar
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:id="@+id/ratingBar_1"
+                android:paddingTop="15dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+
+        <!-- Input gpa area-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="@string/grade"
+                android:id="@+id/grade_text"
+                android:padding="10dp"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="40dp"
+                android:id="@+id/grade_input"
+                android:hint="@string/hint_grade"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:background="@drawable/edittext_bg"></EditText>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:text="@string/out_of_5_text"
+                android:id="@+id/out_of_5"
+                android:padding="10dp"
+
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+        <!-- Input workload area-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="Workload:"
+                android:id="@+id/workload"
+                android:padding="10dp"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="40dp"
+                android:id="@+id/workload_input"
+                android:hint="@string/hint_workload"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:background="@drawable/edittext_bg"></EditText>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:text="@string/hrs_per_week"
+                android:id="@+id/hrs"
+                android:textSize="20sp"
+                android:padding="10dp" />
+        </LinearLayout>
+
+
+        <!-- Input semester area-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Semester:"
+                android:id="@+id/semester"
+                android:padding="10dp"
+                android:textSize="22sp" />
+
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/semester_spinner" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/prof_rating"
+            android:id="@+id/prof_rating_title"
+            android:textSize="22sp"
+            android:padding="10dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="@color/white" />
+
+        <!-- Input rating area-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/prof_sample"
+                android:id="@+id/prof_rating"
+                android:padding="10dp"
+
+                android:textSize="20sp" />
+
+            <RatingBar
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:id="@+id/ratingBar_2"
+                android:paddingTop="15dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+
+        <!--comment area-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/comment"
+            android:id="@+id/comment_title"
+            android:textSize="22sp"
+            android:padding="10dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="@color/white" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/comment_input"
+            android:hint="@string/hint_comments"
             android:inputType="numberDecimal"
-            android:padding="10dp"
-            >
-        </EditText>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/out_of_5_text"
-            android:id="@+id/out_of_5"
-            android:padding="10dp"
-
-            android:textSize="30sp"/>
-
-    </LinearLayout>
-
-
-    <!-- Input workload area-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:text="Workload:"
-            android:id="@+id/workload"
-            android:padding="10dp"
-            android:textSize="30sp"/>
-
-        <EditText android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:id="@+id/workload_input"
-            android:hint="@string/hint_workload"
-            android:inputType="numberDecimal"
-            android:padding="10dp"
-            >
-        </EditText>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hrs_per_week"
-            android:id="@+id/hrs"
-            android:textSize="30sp"
-            android:padding="10dp"
-            />
-    </LinearLayout>
-
-
-    <!-- Input semester area-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:text="Semester:"
-            android:id="@+id/semester"
-            android:padding="10dp"
-            android:textSize="30sp"/>
-
-        <Spinner
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/semester_spinner" />
-
-    </LinearLayout>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/prof_rating"
-        android:id="@+id/prof_rating_title"
-        android:textSize="40sp"
-        android:padding="10dp"
-        />
-
-    <!-- Input rating area-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="1">
-
-        <TextView
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:text="@string/prof_sample"
-            android:id="@+id/prof_rating"
-            android:padding="10dp"
-
-            android:textSize="30sp"/>
-
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:id="@+id/ratingBar_2"
-            android:padding="10dp"
-
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_weight="0.09" />
-
-    </LinearLayout>
-
-
-
-    <!--comment area-->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/comment"
-        android:id="@+id/comment_title"
-        android:textSize="40sp"
-        android:padding="10dp"
-        />
-    <EditText android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:id="@+id/comment_input"
-        android:hint="@string/hint_comments"
-        android:inputType="numberDecimal"
-        android:layout_margin="10dp"
-
-
-        >
-    </EditText>
-    <!-- buttons-->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        >
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cancel"
-            android:id="@+id/button"
-            android:layout_margin="10dp"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/submit"
-            android:id="@+id/button2"
             android:layout_margin="10dp"
-            />
+            android:background="@drawable/edittext_bg"
+            android:gravity="top|left"
+
+            ></EditText>
+        <!-- buttons-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                android:id="@+id/button"
+                android:layout_margin="10dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/submit"
+                android:id="@+id/button2"
+                android:layout_margin="10dp" />
+        </LinearLayout>
+
+
     </LinearLayout>
-
-
-</LinearLayout>
+</ScrollView>

@@ -71,19 +71,15 @@ public class CourseActivity extends Activity implements View.OnClickListener {
                 startActivity(i);
                 break;
         }
-
-
-
-
-
-
-
-
     }
 
 
 
 
+    public void onClick_CommentAvatar(){
+        Intent  i=new Intent(CourseActivity.this,UserProfile.class);
+        startActivity(i);
+    }
 
 
 
