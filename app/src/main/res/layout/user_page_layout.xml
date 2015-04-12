@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@color/blue_2">
+    >
 
-    <LinearLayout
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,18 +20,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bob Singh"
+                android:text="Lisa Simpson"
                 android:layout_gravity="center"
                 android:textSize="30dp"
                 android:textStyle="bold"
-                android:layout_marginTop="7dp" />
+                android:layout_marginTop="7dp"
+                android:id="@+id/LS" />
+
+
         </LinearLayout>
 
         <ImageView
             android:layout_width="145dp"
             android:layout_height="145dp"
             android:layout_gravity="center"
-            android:src="@drawable/bob"
+            android:src="@drawable/user2"
             android:id="@+id/bob"
             android:layout_marginTop="10dp" />
 
@@ -43,8 +45,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:orientation="vertical"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -66,7 +67,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Electrical and Computer Engineering"
+                android:text="Computer Science"
                 android:layout_gravity="center"
                 android:textSize="18dp"
                 android:layout_marginTop="7dp"
@@ -82,16 +83,15 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:orientation="vertical"
-            android:layout_marginBottom="5dp">
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rating"
-                android:layout_gravity="center"
+                android:text="Courses Attended"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:id="@+id/rat" />
+                android:id="@+id/CA" />
 
             <View
                 android:layout_height="1dp"
@@ -100,57 +100,16 @@
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp" />
 
-            <RatingBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ratingBarAvgRating"
-                android:rating="5"
-                android:numStars="5"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5.0"
-                android:layout_gravity="center"
-                android:textSize="18dp"
-                android:id="@+id/rating" />
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Instructing Courses"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:id="@+id/IC" />
-
-            <View
-                android:layout_height="1dp"
-                android:layout_width="match_parent"
-                android:background="@color/white"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp" />
 
             <ListView
-                android:id="@+id/instructingCourseListView"
+                android:id="@+id/userCourseAttendedListView"
                 android:layout_width="match_parent"
                 android:layout_height="150dp">
             </ListView>
 
+
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -163,12 +122,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Home Page Link"
+                android:text="Contact Infomation"
                 android:layout_gravity="center"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"
-                android:id="@+id/HPL" />
+                android:id="@+id/CI" />
+
             <View
                 android:layout_height="1dp"
                 android:layout_width="match_parent"
@@ -176,15 +136,80 @@
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="https://www.ece.cmu.edu/directory/department/faculty/S/Sukhijit_Singh_7077.html"
-                android:layout_gravity="center"
-                android:textSize="13dp"
-                android:layout_marginTop="7dp"
-                android:id="@+id/HPlink" />
+                android:orientation="horizontal"
+                android:layout_marginTop="7dp">
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Email:"
+                    android:layout_gravity="center"
+                    android:textSize="13dp"
+                    android:id="@+id/Email" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="13dp"
+                    android:inputType="textMultiLine"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Homepage:"
+                    android:layout_gravity="center"
+                    android:textSize="13dp"
+                    android:id="@+id/HPlink" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="13dp"
+                    android:inputType="textMultiLine"
+                    android:id="@+id/homePageLink" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Linkedin:"
+                    android:layout_gravity="center"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:inputType="textMultiLine"
+                    android:textSize="13dp"
+                    android:id="@+id/linkedinlink" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
