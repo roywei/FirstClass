@@ -24,4 +24,11 @@ https://github.com/tanjialiang/FirstClassServer
 
 Documentation files:
 FirstClass/Database-Schema_nianzut_jialiant_laiw.pdf
+
 FirstClass/UML before coding_jialiant_nianzut_laiw.jpg
+
+
+screenshots:
+
+![Alt text](/screenshot_port.jpg?raw=true "login portrait")
+![Alt text](/screenshot_land.jpg?raw=true "login landscape")
