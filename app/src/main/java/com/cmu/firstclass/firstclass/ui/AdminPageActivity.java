@@ -1,4 +1,4 @@
-package com.cmu.firstclass.firstclass.presentation;
+package com.cmu.firstclass.firstclass.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -18,10 +18,10 @@ import com.cmu.firstclass.firstclass.R;
     //add by nianzu again on april 10th
 
     // jialiang
-public class AdminPage extends Activity{
+public class AdminPageActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.admin_page);
+        setContentView(R.layout.ui_admin_page_activity);
     }
 }

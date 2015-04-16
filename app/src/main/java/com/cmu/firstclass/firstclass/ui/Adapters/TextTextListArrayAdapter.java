@@ -1,7 +1,6 @@
-package com.cmu.firstclass.firstclass.presentation;
+package com.cmu.firstclass.firstclass.ui.Adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

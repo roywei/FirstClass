@@ -1,4 +1,4 @@
-package com.cmu.firstclass.firstclass.presentation;
+package com.cmu.firstclass.firstclass.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,7 +19,7 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.ui_login_activity);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -46,12 +46,12 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(LoginActivity.this, Register.class);
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
 
-        /*Button adminButton = (Button) findViewById(R.id.admin_page);
+        /*Button adminButton = (Button) findViewById(R.id.ui_admin_page_activity);
         adminButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

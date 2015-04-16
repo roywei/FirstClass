@@ -1,4 +1,4 @@
-package com.cmu.firstclass.firstclass.presentation;
+package com.cmu.firstclass.firstclass.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.cmu.firstclass.firstclass.R;
+import com.cmu.firstclass.firstclass.ui.Adapters.TextTextListArrayAdapter;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,7 +22,7 @@ public class DepartmentCourseListActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_department_course_list);
+        setContentView(R.layout.ui_department_course_list_activity);
 
         String[] strArray = {"one", "two", "three", "four", "five", "six", "seven", "eight",
         "nine", "ten", "eleven", "twelve", "thirteen"};

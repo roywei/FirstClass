@@ -1,4 +1,4 @@
-package com.cmu.firstclass.firstclass.presentation;
+package com.cmu.firstclass.firstclass.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -33,7 +33,7 @@ public class CommentAdapter extends ArrayAdapter {
         ivComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(CommentAdapter.this.getContext(),UserProfile.class);
+                Intent i=new Intent(CommentAdapter.this.getContext(),UserProfileActivity.class);
                 CommentAdapter.this.getContext().startActivity(i);
             }
         });

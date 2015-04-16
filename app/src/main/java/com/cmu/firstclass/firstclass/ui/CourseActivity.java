@@ -1,4 +1,4 @@
-package com.cmu.firstclass.firstclass.presentation;
+package com.cmu.firstclass.firstclass.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -29,7 +29,7 @@ public class CourseActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.course_page);
+        setContentView(R.layout.ui_course_page_activity);
 
         instructorImage=(ImageView)findViewById(R.id.bob);
         lisaImage=(ImageView)findViewById(R.id.user2Img);
@@ -46,7 +46,7 @@ public class CourseActivity extends Activity implements View.OnClickListener {
         submitReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CourseActivity.this, SubmitReview.class);
+                Intent intent = new Intent(CourseActivity.this, SubmitReviewActivity.class);
                 startActivity(intent);
             }
         });
@@ -76,7 +76,7 @@ public class CourseActivity extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.user2Img:
-                i = new Intent(this, UserProfile.class);
+                i = new Intent(this, UserProfileActivity.class);
                 startActivity(i);
                 break;
         }

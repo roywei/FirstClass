@@ -1,4 +1,4 @@
-package com.cmu.firstclass.firstclass.presentation;
+package com.cmu.firstclass.firstclass.ui.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.cmu.firstclass.firstclass.R;
 import com.cmu.firstclass.firstclass.entities.IDNameDuple;
+import com.cmu.firstclass.firstclass.ui.CourseActivity;
 
 import java.util.List;
 

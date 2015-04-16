@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".presentation.LoginActivity"
+            android:name=".ui.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,35 +16,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.SubmitReview"
+        <activity android:name=".ui.SubmitReviewActivity"
             android:label="SubmitReview"></activity>
         <activity
-            android:name=".presentation.DepartmentListActivity"
+            android:name=".ui.DepartmentListActivity"
             android:label="@string/title_activity_department_list" >
         </activity>
 
         <activity
-            android:name=".presentation.DepartmentCourseListActivity"
+            android:name=".ui.DepartmentCourseListActivity"
             android:label="@string/title_activity_department_course_list" >
         </activity>
         <activity
-            android:name=".presentation.Register"
+            android:name=".ui.RegisterActivity"
             android:label="@string/title_register" >
         </activity>
         <activity
-            android:name=".presentation.AdminPage"
+            android:name=".ui.AdminPageActivity"
             android:label="@string/admin_management" >
         </activity>
         <activity
-            android:name=".presentation.CourseActivity"
+            android:name=".ui.CourseActivity"
             android:label="CourseActivity" >
         </activity>
         <activity
-            android:name=".presentation.InstructorActivity"
+            android:name=".ui.InstructorActivity"
             android:label="Instructor Page" >
         </activity>
         <activity
-            android:name=".presentation.UserProfile"
+            android:name=".ui.UserProfileActivity"
             android:label="Lis" >
         </activity>
     </application>

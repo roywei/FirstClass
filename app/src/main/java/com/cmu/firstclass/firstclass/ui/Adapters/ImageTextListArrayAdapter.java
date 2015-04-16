@@ -1,4 +1,4 @@
-package com.cmu.firstclass.firstclass.presentation;
+package com.cmu.firstclass.firstclass.ui.Adapters;
 
 import android.content.Context;
 import android.graphics.Point;

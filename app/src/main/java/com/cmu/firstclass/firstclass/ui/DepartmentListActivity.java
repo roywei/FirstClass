@@ -1,4 +1,4 @@
-package com.cmu.firstclass.firstclass.presentation;
+package com.cmu.firstclass.firstclass.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.cmu.firstclass.firstclass.R;
+import com.cmu.firstclass.firstclass.ui.Adapters.ImageTextListArrayAdapter;
 
 
 public class DepartmentListActivity extends Activity {
@@ -20,7 +21,7 @@ public class DepartmentListActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_department_list);
+        setContentView(R.layout.ui_department_list_activity);
 
         // TODO DELETE the demon array
         String[] array = {"pikachu", "super mario", "sonic", "micky", "bruno the dog", "donald duck"
@@ -56,7 +57,7 @@ public class DepartmentListActivity extends Activity {
         navigationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(DepartmentListActivity.this, UserProfile.class);
+                Intent intent = new Intent(DepartmentListActivity.this, UserProfileActivity.class);
                 startActivity(intent);
             }
         });
