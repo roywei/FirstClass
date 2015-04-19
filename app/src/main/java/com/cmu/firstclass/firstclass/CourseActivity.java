@@ -29,7 +29,6 @@ public class CourseActivity extends Activity implements View.OnClickListener {
         instructorImage=(ImageView)findViewById(R.id.bob);
         lisaImage=(ImageView)findViewById(R.id.user2Img);
 
-<<<<<<< HEAD
         instructorImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,8 +37,6 @@ public class CourseActivity extends Activity implements View.OnClickListener {
             }
         });
 
-=======
->>>>>>> jialiangtan
         Button submitReview = (Button)findViewById(R.id.SR);
         submitReview.setOnClickListener(new View.OnClickListener() {
             @Override
