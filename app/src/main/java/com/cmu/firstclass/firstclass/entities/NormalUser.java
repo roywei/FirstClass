@@ -8,96 +8,122 @@ import java.util.List;
  * This class represents a user's profile
  */
 public class NormalUser {
+    private List<IDataChangeListener> dataChangeListenerList;
+
     private String userID;
     private String name;
     private String address;
     private String email;
-    private int cellNumber;
+    private Integer cellNumber;
     private University university;
     private Department department;
     private List<Course> courseWatchList;
 
-    public NormalUser(String userID, boolean isDetailedConstruction) {
+    public NormalUser(String userID, String name, IDataChangeListener databaseUpdateListenser) {
         this.userID = userID;
-        if (isDetailedConstruction) {
-            // TODO database retrieve for detailed construction
-        }
-        else {
-            // TODO database retrieve for user information, detailed information shall not be initialized at this time
-        }
+        this.name = name;
+        this.dataChangeListenerList.add(databaseUpdateListenser);
     }
 
-    public void completeDetailedConstruction() {
-        if (courseWatchList == null) {
-            // TODO database retrieve for detailed construction
+    public List<Course> getCourseWatchList() throws ContentNotLoadedException {
+        if (this.courseWatchList == null) {
+            throw new ContentNotLoadedException("User is not detailed constructed, no course" +
+                    " information can be found");
         }
-        else {
-            return;
-        }
-    }
-    public List<Course> getCourseWatchList() {
         return courseWatchList;
     }
 
-    public void setCourseWatchList(List<Course> courseWatchList) {
+    public void setAndSyncCourseWatchList(List<Course> courseWatchList) {
         this.courseWatchList = courseWatchList;
-        // TODO sync with database
+        for (IDataChangeListener listener : this.dataChangeListenerList) {
+            listener.OnUserUpdateWatchList(this, courseWatchList);
+        }
     }
 
-    public String getDepartmentName() {
-        return department.getName();
+    public Department getDepartment() throws ContentNotLoadedException {
+        if (this.department == null) {
+            throw new ContentNotLoadedException("User is not detailed constructed, no course" +
+                    " information can be found");
+        }
+        return this.department;
     }
 
-    public void setDepartment(Department department) {
+    public void setAndSyncDepartment(Department department) {
         this.department = department;
+        for (IDataChangeListener listener : this.dataChangeListenerList) {
+            listener.OnUserUpdateDepartment(this);
+        }
     }
 
-    public String getUniversityName() {
-        return university.getName();
+    public University getUniversity() throws ContentNotLoadedException {
+        if (this.university == null) {
+            throw new ContentNotLoadedException("User is not detailed constructed, no course" +
+                    " information can be found");
+        }
+        return this.university;
     }
 
-    public void setUniversity(University university) {
+    public void setAndSyncUniversity(University university) {
         this.university = university;
-        // TODO sync with database
+        for (IDataChangeListener listener : this.dataChangeListenerList) {
+            listener.OnUserUpdateUniversity(this);
+        }
     }
 
-    public int getCellNumber() {
+    public int getCellNumber() throws ContentNotLoadedException {
+        if (this.cellNumber == null) {
+            throw new ContentNotLoadedException("User is not detailed constructed, no course" +
+                    " information can be found");
+        }
         return cellNumber;
     }
 
-    public void setCellNumber(int cellNumber) {
+    public void setAndSyncCellNumber(int cellNumber) {
         this.cellNumber = cellNumber;
-        // TODO sync with database
+        for (IDataChangeListener listener : this.dataChangeListenerList) {
+            listener.OnUserUpdateCellNumber(this);
+        }
     }
 
-    public String getEmail() {
+    public String getEmail() throws ContentNotLoadedException {
+        if (this.email == null) {
+            throw new ContentNotLoadedException("Department is not detailed constructed, no course" +
+                    " information can be found");
+        }
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setAndSyncEmail(String email) {
         this.email = email;
-        // TODO sync with database
-
+        for (IDataChangeListener listener : this.dataChangeListenerList) {
+            listener.OnUserUpdateEmail(this);
+        }
     }
 
-    public String getAddress() {
+    public String getAddress() throws ContentNotLoadedException {
+        if (this.address == null) {
+            throw new ContentNotLoadedException("Department is not detailed constructed, no course" +
+                    " information can be found");
+        }
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAndSyncAddress(String address) {
         this.address = address;
-        // TODO sync with database
-
+        for (IDataChangeListener listener : this.dataChangeListenerList) {
+            listener.OnUserUpdateAddress(this);
+        }
     }
 
     public String getName() {
         return this.name;
     }
 
-    public void setName(String name) {
+    public void setAndSyncName(String name) {
         this.name = name;
-        // TODO sync with database
-
+        for (IDataChangeListener listener : this.dataChangeListenerList) {
+            listener.OnUserUpdateName(this);
+        }
     }
 
     public String getUserID() {
@@ -106,13 +132,68 @@ public class NormalUser {
 
     /**
      * adds a course to the user's course watch list
-     * @param CourseID
+     * @param courseID
      */
-    public void addCourseToWatchList(int CourseID) throws ContentNotLoadedException {
+    public void addCourseToWatchList(int courseID) throws ContentNotLoadedException {
         if (this.courseWatchList == null) {
             throw new ContentNotLoadedException("NormalUser is not detailed constructed and " +
                     "watch list information cannot be found");
         }
-        // TODO find course from courseID from database, adding to watch list, synchronize with database
+        for (IDataChangeListener listener : this.dataChangeListenerList) {
+            listener.OnUserAddCourseToWatchList(this, courseID);
+        }
+    }
+
+    public void deleteCourseFromWatchList(int courseID) throws ContentNotLoadedException {
+        if (this.courseWatchList == null) {
+            throw new ContentNotLoadedException("NormalUser is not detailed constructed and " +
+                    "watch list information cannot be found");
+        }
+        for (IDataChangeListener listener : this.dataChangeListenerList) {
+            listener.OnUserDeleteCourseFromWatchList(this, courseID);
+        }
+    }
+
+    /**
+     * detailed construction for this object. {@link this.isWellConstructed()} method has to be called
+     * before each call to check if the object is well constructed in order to guarantee the efficiency.
+     */
+    public void completeDetailedConstruction(String address,
+                                             String email,
+                                             Integer cellNumber,
+                                             List<Course> courseWatchList,
+                                             Department department,
+                                             University university) {
+        this.address = address;
+        this.email = email;
+        this.cellNumber = cellNumber;
+        this.courseWatchList = courseWatchList;
+        this.department = department;
+        this.university = university;
+    }
+
+    /**
+     * check if the construction of the object is complete.
+     * @return
+     */
+    public boolean isWellConstructed() {
+        if (this.address == null
+                || this.cellNumber == null
+                || this.courseWatchList == null
+                || this.department == null
+                || this.email == null
+                || this.university == null
+                ) {
+            return false;
+        }
+        return true;
+    }
+
+    public void registerDataChangeListener(IDataChangeListener dataChangeListener) {
+        this.dataChangeListenerList.add(dataChangeListener);
+    }
+
+    public void deregisterDataChangeListener(IDataChangeListener dataChangeListener) {
+        this.dataChangeListenerList.remove(dataChangeListener);
     }
 }
