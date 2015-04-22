@@ -38,4 +38,24 @@ public interface IDataChangeListener {
     void OnUserAddCourseToWatchList(NormalUser user, int courseID);
 
     void OnUserDeleteCourseFromWatchList(NormalUser user, int courseID);
+
+    void OnCourseReviewListUpdate(Course course);
+
+    void OnCourseInstructorListUpdate(Course course);
+
+    void OnCourseNameChanged(Course course);
+
+    void OnCourseInstructionChanged(Course course);
+
+    void OnCourseAvgGPAChanged(Course course);
+
+    void OnCourseAvgRatingChanged(Course course);
+
+    void OnCourseAvgWorkloadChanged(Course course);
+
+    void OnCourseRankingChanged(Course course);
+
+    void OnCourseNumberChanged(Course course);
+
+    void OnCourseCourseNameChanged(Course course);
 }

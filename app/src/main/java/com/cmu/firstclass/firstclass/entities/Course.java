@@ -2,47 +2,56 @@ package com.cmu.firstclass.firstclass.entities;
 
 import com.cmu.firstclass.firstclass.entities.exceptions.ContentNotLoadedException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by jialiangtan on 4/3/15.
  */
 public class Course {
+    private List<IDataChangeListener> dataChangeListenerList = new ArrayList<>();
 
     private int courseID;
     private String courseName;
-    private float rating = -1;
+    private Integer courseNumber;
+    private String introduction;
+    private Double avgGPA;
+    private Double avgRating;
+    private Double avgWorkload;
+    private Integer ranking;
     private List<Instructor> instructorList;
     private List<CourseReview> reviewList;
 
     /**
-     * construct the course object
+     * construct the course object, partially
      * @param courseID
-     * @param isDetailedConstruction if it is set true, only course name will be retrieved, otherwise
-     *                               all detailed information will be retrieved from the database.
      */
-    public Course(int courseID, boolean isDetailedConstruction) {
-        if (isDetailedConstruction) {
-
-            // TODO detailed constructing the Course from database
-        }
-        else {
-            // TODO non detailed construction (name and rating)
-        }
-
+    public Course(int courseID, Integer courseNumber, String courseName, IDataChangeListener databaseListener) {
+        this.courseID = courseID;
+        dataChangeListenerList.add(databaseListener);
     }
 
     /**
      * complete the detailed construction if the {@link com.cmu.firstclass.firstclass.entities.Course} is not detailed constructed
      */
-    public void completeDetailedConstruction() {
-        if (instructorList == null) {
-            // TODO complete the detailed construction
-        }
-        else {
-            return;
-        }
+    public void completeDetailedConstruction(
+            String introduction,
+            Double avgGPA,
+            Double avgRating,
+            Double avgWorkload,
+            Integer ranking,
+            List<Instructor> instructorList,
+            List<CourseReview> reviewList) {
+        this.introduction = introduction;
+        this.avgGPA = avgGPA;
+        this.avgRating = avgRating;
+        this.avgWorkload = avgWorkload;
+        this.ranking = ranking;
+        this.instructorList = instructorList;
+        this.reviewList = reviewList;
     }
+
+    // Getters
 
     public int getCourseID() {
         return courseID;
@@ -52,12 +61,8 @@ public class Course {
         return courseName;
     }
 
-    public float getRating() throws ContentNotLoadedException {
-        if (this.rating + 1 < 0.000001) {
-            throw new ContentNotLoadedException("Course is not detailed constructed, no rating " +
-                    "information can be found");
-        }
-        return rating;
+    public Integer getCourseNumber() {
+        return this.courseNumber;
     }
 
     public List<CourseReview> getReviewList() throws ContentNotLoadedException {
@@ -68,11 +73,6 @@ public class Course {
         return reviewList;
     }
 
-    public void setReviewList(List<CourseReview> reviewList) {
-        this.reviewList = reviewList;
-        // TODO sync with database
-    }
-
     public List<Instructor> getInstructorList() throws ContentNotLoadedException {
         if (this.reviewList == null) {
             throw new ContentNotLoadedException("Course is not detailed constructed, no instructors " +
@@ -81,21 +81,109 @@ public class Course {
         return instructorList;
     }
 
+    public String getIntroduction() throws ContentNotLoadedException {
+        if (this.introduction == null) {
+            throw new ContentNotLoadedException("Course is not detailed constructed, no reviews " +
+                    "information can be found");
+        }
+        return introduction;
+    }
+
+    public Double getAvgGPA() throws ContentNotLoadedException {
+        if (this.avgGPA == null) {
+            throw new ContentNotLoadedException("Course is not detailed constructed, no reviews " +
+                    "information can be found");
+        }
+        return avgGPA;
+    }
+
+    public Double getAvgRating() throws ContentNotLoadedException {
+        if (this.avgRating == null) {
+            throw new ContentNotLoadedException("Course is not detailed constructed, no reviews " +
+                    "information can be found");
+        }
+        return avgRating;
+    }
+
+    public Double getAvgWorkload() throws ContentNotLoadedException {
+        if (this.avgWorkload == null) {
+            throw new ContentNotLoadedException("Course is not detailed constructed, no reviews " +
+                    "information can be found");
+        }
+        return avgWorkload;
+    }
+
+    public Integer getRanking() throws ContentNotLoadedException {
+        if (this.ranking == null) {
+            throw new ContentNotLoadedException("Course is not detailed constructed, no reviews " +
+                    "information can be found");
+        }
+        return ranking;
+    }
+
+    // Setters
+
+    public void setCourseNumber(Integer courseNumber) {
+        this.courseNumber = courseNumber;
+        for (IDataChangeListener listener : dataChangeListenerList) {
+            listener.OnCourseNumberChanged(this);
+        }
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+        for (IDataChangeListener listener : dataChangeListenerList) {
+            listener.OnCourseInstructionChanged(this);
+        }
+    }
+
+    public void setAvgGPA(Double avgGPA) {
+        this.avgGPA = avgGPA;
+        for (IDataChangeListener listener : dataChangeListenerList) {
+            listener.OnCourseAvgGPAChanged(this);
+        }
+    }
+
+    public void setAvgRating(Double avgRating) {
+        this.avgRating = avgRating;
+        for (IDataChangeListener listener : dataChangeListenerList) {
+            listener.OnCourseAvgRatingChanged(this);
+        }
+    }
+
+    public void setAvgWorkload(Double avgWorkload) {
+        this.avgWorkload = avgWorkload;
+        for (IDataChangeListener listener : dataChangeListenerList) {
+            listener.OnCourseAvgWorkloadChanged(this);
+        }
+    }
+
+    public void setReviewList(List<CourseReview> reviewList) {
+        this.reviewList = reviewList;
+        for (IDataChangeListener listener : dataChangeListenerList) {
+            listener.OnCourseReviewListUpdate(this);
+        }
+    }
+
     public void setInstructorList(List<Instructor> instructorList) {
         this.instructorList = instructorList;
-        // TODO sync with database
+        for (IDataChangeListener listener : dataChangeListenerList) {
+            listener.OnCourseInstructorListUpdate(this);
+        }
     }
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
-        // TODO sync with database
+        for (IDataChangeListener listener : dataChangeListenerList) {
+            listener.OnCourseNameChanged(this);
+        }
     }
 
-    /**
-     * called when any rating in any review changes
-     */
-    private void updateReviewScore() {
-        // TODO update review score
+    public void setRanking(Integer ranking) {
+        this.ranking = ranking;
+        for (IDataChangeListener listener : dataChangeListenerList) {
+            listener.OnCourseRankingChanged(this);
+        }
     }
 
 }
