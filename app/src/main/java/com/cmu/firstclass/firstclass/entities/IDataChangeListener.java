@@ -68,4 +68,16 @@ public interface IDataChangeListener {
     void OnInstructorAvatarLinkChanged(Instructor instructor);
 
     void OnInstructorDepartmentChanged(Instructor instructor);
+
+    void OnReviewUserChanged(CourseReview courseReview);
+
+    void OnReviewCourseChanged(CourseReview courseReview);
+
+    void OnReviewGPAChanged(CourseReview courseReview);
+
+    void OnReviewCourseRatingChanged(CourseReview courseReview);
+
+    void OnReviewWorkloadChanged(CourseReview courseReview);
+
+    void OnReviewCommentChanged(CourseReview courseReview);
 }

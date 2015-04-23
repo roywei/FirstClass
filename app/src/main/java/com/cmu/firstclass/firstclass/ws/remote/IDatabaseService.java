@@ -1,6 +1,10 @@
 package com.cmu.firstclass.firstclass.ws.remote;
 
+import com.cmu.firstclass.firstclass.entities.Course;
+import com.cmu.firstclass.firstclass.entities.CourseReview;
+import com.cmu.firstclass.firstclass.entities.Department;
 import com.cmu.firstclass.firstclass.entities.IDataChangeListener;
+import com.cmu.firstclass.firstclass.entities.Instructor;
 import com.cmu.firstclass.firstclass.entities.NormalUser;
 import com.cmu.firstclass.firstclass.entities.University;
 
@@ -16,15 +20,29 @@ public interface IDatabaseService {
      */
     List<University> getListOfUniversities();
 
-    /**
-     * loads the complete university content from database
-     * @param university
-     */
-    void loadUniversityContent(University university);
+    NormalUser getUser(int id);
+
+    Department getDepartment(int id);
+
+    Course getCourse(int id);
+
+    CourseReview getCourseReview(int id);
+
+    Instructor getInstructor(int id);
 
     /**
-     * loads the complete user content from database
-     * @param user
+     * loads the complete object content from database
+     * @param university
      */
-    void loadUserContent(NormalUser user);
+    void loadUniversity(University university);
+
+    void loadUser(NormalUser user);
+
+    void loadDepartment(Department department);
+
+    void loadCourse(Course course);
+
+    void loadCourseReview(CourseReview courseReview);
+
+    void loadInstructor(Instructor instructor);
 }
