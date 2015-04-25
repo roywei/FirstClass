@@ -2,6 +2,7 @@ package com.cmu.firstclass.firstclass.entities;
 
 import com.cmu.firstclass.firstclass.entities.exceptions.ContentNotLoadedException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
@@ -9,7 +10,11 @@ import java.util.SortedMap;
 /**
  * Created by jialiangtan on 4/3/15.
  */
-public class Department {
+public class Department implements Serializable {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 8753777172572978152L;
     private List<IDataChangeListener> dataChangeListenerList = new ArrayList<>();
 
     private Integer departmentID;
@@ -74,7 +79,7 @@ public class Department {
     public void setName(String name) {
         this.name = name;
         for (IDataChangeListener dataChangeListener : dataChangeListenerList) {
-            dataChangeListener.OnDepartmentNameUpdate(this);
+            dataChangeListener.OnDepartmentUpdate(this);
         }
     }
     /**

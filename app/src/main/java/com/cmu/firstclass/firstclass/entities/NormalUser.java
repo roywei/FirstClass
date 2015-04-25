@@ -2,12 +2,17 @@ package com.cmu.firstclass.firstclass.entities;
 
 import com.cmu.firstclass.firstclass.entities.exceptions.ContentNotLoadedException;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * This class represents a user's profile
  */
-public class NormalUser {
+public class NormalUser implements Serializable {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 2577731395801979103L;
     private List<IDataChangeListener> dataChangeListenerList;
 
     private String userID;
@@ -51,7 +56,7 @@ public class NormalUser {
     public void setAndSyncDepartment(Department department) {
         this.department = department;
         for (IDataChangeListener listener : this.dataChangeListenerList) {
-            listener.OnUserUpdateDepartment(this);
+            listener.OnUserUpdate(this);
         }
     }
 
@@ -66,7 +71,7 @@ public class NormalUser {
     public void setAndSyncUniversity(University university) {
         this.university = university;
         for (IDataChangeListener listener : this.dataChangeListenerList) {
-            listener.OnUserUpdateUniversity(this);
+            listener.OnUserUpdate(this);
         }
     }
 
@@ -81,7 +86,7 @@ public class NormalUser {
     public void setAndSyncCellNumber(int cellNumber) {
         this.cellNumber = cellNumber;
         for (IDataChangeListener listener : this.dataChangeListenerList) {
-            listener.OnUserUpdateCellNumber(this);
+            listener.OnUserUpdate(this);
         }
     }
 
@@ -96,7 +101,7 @@ public class NormalUser {
     public void setAndSyncEmail(String email) {
         this.email = email;
         for (IDataChangeListener listener : this.dataChangeListenerList) {
-            listener.OnUserUpdateEmail(this);
+            listener.OnUserUpdate(this);
         }
     }
 
@@ -111,7 +116,7 @@ public class NormalUser {
     public void setAndSyncAddress(String address) {
         this.address = address;
         for (IDataChangeListener listener : this.dataChangeListenerList) {
-            listener.OnUserUpdateAddress(this);
+            listener.OnUserUpdate(this);
         }
     }
 
@@ -122,7 +127,7 @@ public class NormalUser {
     public void setAndSyncName(String name) {
         this.name = name;
         for (IDataChangeListener listener : this.dataChangeListenerList) {
-            listener.OnUserUpdateName(this);
+            listener.OnUserUpdate(this);
         }
     }
 

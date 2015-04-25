@@ -2,6 +2,7 @@ package com.cmu.firstclass.firstclass.entities;
 
 import com.cmu.firstclass.firstclass.entities.exceptions.ContentNotLoadedException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +10,11 @@ import java.util.List;
 /**
  * Created by jialiangtan on 4/3/15.
  */
-public class University {
+public class University implements Serializable {
+    /**
+     *
+     */
+    private static final long serialVersionUID = -4536935647009974228L;
     private List<IDataChangeListener> dataChangeListenerList = new ArrayList<>();
 
     private Integer universityID;
@@ -38,7 +43,7 @@ public class University {
     public void setName(String name) {
         this.name = name;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnUniversityNameUpdate(this);
+            listener.OnUniversityUpdate(this);
         }
     }
 

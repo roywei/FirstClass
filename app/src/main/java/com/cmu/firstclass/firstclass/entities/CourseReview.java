@@ -2,13 +2,18 @@ package com.cmu.firstclass.firstclass.entities;
 
 import com.cmu.firstclass.firstclass.entities.exceptions.ContentNotLoadedException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by jialiangtan on 4/3/15.
  */
-public class CourseReview {
+public class CourseReview implements Serializable {
+    /**
+     *
+     */
+    private static final long serialVersionUID = -5100130235763853991L;
     private List<IDataChangeListener> dataChangeListenerList = new ArrayList<>();
 
     private int id;
@@ -93,42 +98,42 @@ public class CourseReview {
     public void setUser(NormalUser user) {
         this.user = user;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnReviewUserChanged(this);
+            listener.OnReviewUpdate(this);
         }
     }
 
     public void setCourse(Course course) {
         this.course = course;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnReviewCourseChanged(this);
+            listener.OnReviewUpdate(this);
         }
     }
 
     public void setGPA(Double GPA) {
         this.GPA = GPA;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnReviewGPAChanged(this);
+            listener.OnReviewUpdate(this);
         }
     }
 
     public void setCourseRating(Double rating) {
         this.courseRating = rating;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnReviewCourseRatingChanged(this);
+            listener.OnReviewUpdate(this);
         }
     }
 
     public void setWorkload(Double workload) {
         this.workload = workload;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnReviewWorkloadChanged(this);
+            listener.OnReviewUpdate(this);
         }
     }
 
     public void setComment(String comment) {
         this.comment = comment;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnReviewCommentChanged(this);
+            listener.OnReviewUpdate(this);
         }
     }
 }

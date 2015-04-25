@@ -15,69 +15,21 @@ public interface IDataChangeListener {
 
     void OnDepartmentAddingCourse(Department department, Course course);
 
-    void OnDepartmentNameUpdate(Department department);
-
     void OnDepartmentDeletingCourse(Department department, Course course);
 
-    void OnUniversityNameUpdate(University university);
-
     void OnUserUpdateWatchList(NormalUser user, List<Course> watchList);
-
-    void OnUserUpdateDepartment(NormalUser user);
-
-    void OnUserUpdateUniversity(NormalUser user);
-
-    void OnUserUpdateCellNumber(NormalUser user);
-
-    void OnUserUpdateEmail(NormalUser user);
-
-    void OnUserUpdateAddress(NormalUser user);
-
-    void OnUserUpdateName(NormalUser user);
 
     void OnUserAddCourseToWatchList(NormalUser user, int courseID);
 
     void OnUserDeleteCourseFromWatchList(NormalUser user, int courseID);
 
-    void OnCourseReviewListUpdate(Course course);
+    void OnCourseUpdate(Course course);
 
-    void OnCourseInstructorListUpdate(Course course);
+    void OnReviewUpdate(CourseReview courseReview);
 
-    void OnCourseNameChanged(Course course);
+    void OnInstructorUpdate(Instructor instructor);
 
-    void OnCourseInstructionChanged(Course course);
+    void OnAddCourseReviewToCourse(Course course, CourseReview review);
 
-    void OnCourseAvgGPAChanged(Course course);
-
-    void OnCourseAvgRatingChanged(Course course);
-
-    void OnCourseAvgWorkloadChanged(Course course);
-
-    void OnCourseRankingChanged(Course course);
-
-    void OnCourseNumberChanged(Course course);
-
-    void OnCourseCourseNameChanged(Course course);
-
-    void OnInstructorNameChanged(Instructor instructor);
-
-    void OnInstructorRankingChanged(Instructor instructor);
-
-    void OnInstructorContactChanged(Instructor instructor);
-
-    void OnInstructorAvatarLinkChanged(Instructor instructor);
-
-    void OnInstructorDepartmentChanged(Instructor instructor);
-
-    void OnReviewUserChanged(CourseReview courseReview);
-
-    void OnReviewCourseChanged(CourseReview courseReview);
-
-    void OnReviewGPAChanged(CourseReview courseReview);
-
-    void OnReviewCourseRatingChanged(CourseReview courseReview);
-
-    void OnReviewWorkloadChanged(CourseReview courseReview);
-
-    void OnReviewCommentChanged(CourseReview courseReview);
+    void OnDeleteCourseReviewFromCourse(Course course, CourseReview review);
 }

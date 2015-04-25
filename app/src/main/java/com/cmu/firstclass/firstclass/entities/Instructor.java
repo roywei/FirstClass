@@ -2,13 +2,18 @@ package com.cmu.firstclass.firstclass.entities;
 
 import com.cmu.firstclass.firstclass.entities.exceptions.ContentNotLoadedException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by jialiangtan on 4/3/15.
  */
-public class Instructor {
+public class Instructor implements Serializable {
+    /**
+     *
+     */
+    private static final long serialVersionUID = -7112940386667939327L;
     private List<IDataChangeListener> dataChangeListenerList = new ArrayList<>();
 
     private String id;
@@ -78,35 +83,35 @@ public class Instructor {
     public void setName(String name) {
         this.name = name;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnInstructorNameChanged(this);
+            listener.OnInstructorUpdate(this);
         }
     }
 
     public void setRanking(Integer ranking) {
         this.ranking = ranking;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnInstructorRankingChanged(this);
+            listener.OnInstructorUpdate(this);
         }
     }
 
     public void setContact(String contact) {
         this.contact = contact;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnInstructorContactChanged(this);
+            listener.OnInstructorUpdate(this);
         }
     }
 
     public void setAvatarLink(String avatarLink) {
         this.avatarLink = avatarLink;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnInstructorAvatarLinkChanged(this);
+            listener.OnInstructorUpdate(this);
         }
     }
 
     public void setDepartment(Department department) {
         this.department = department;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnInstructorDepartmentChanged(this);
+            listener.OnInstructorUpdate(this);
         }
     }
 }

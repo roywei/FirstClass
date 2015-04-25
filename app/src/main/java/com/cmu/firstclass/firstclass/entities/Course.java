@@ -2,13 +2,18 @@ package com.cmu.firstclass.firstclass.entities;
 
 import com.cmu.firstclass.firstclass.entities.exceptions.ContentNotLoadedException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by jialiangtan on 4/3/15.
  */
-public class Course {
+public class Course implements Serializable{
+    /**
+     *
+     */
+    private static final long serialVersionUID = 2334261593687006984L;
     private List<IDataChangeListener> dataChangeListenerList = new ArrayList<>();
 
     private int courseID;
@@ -126,63 +131,70 @@ public class Course {
     public void setCourseNumber(Integer courseNumber) {
         this.courseNumber = courseNumber;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnCourseNumberChanged(this);
+            listener.OnCourseUpdate(this);
         }
     }
 
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnCourseInstructionChanged(this);
+            listener.OnCourseUpdate(this);
         }
     }
 
     public void setAvgGPA(Double avgGPA) {
         this.avgGPA = avgGPA;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnCourseAvgGPAChanged(this);
+            listener.OnCourseUpdate(this);
         }
     }
 
     public void setAvgRating(Double avgRating) {
         this.avgRating = avgRating;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnCourseAvgRatingChanged(this);
+            listener.OnCourseUpdate(this);
         }
     }
 
     public void setAvgWorkload(Double avgWorkload) {
         this.avgWorkload = avgWorkload;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnCourseAvgWorkloadChanged(this);
+            listener.OnCourseUpdate(this);
         }
     }
 
-    public void setReviewList(List<CourseReview> reviewList) {
-        this.reviewList = reviewList;
+    public void addToReviewList(CourseReview review) {
+        this.reviewList.add(review);
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnCourseReviewListUpdate(this);
+            listener.OnAddCourseReviewToCourse(this, review);
+        }
+    }
+
+    public void removeFromReviewList(CourseReview review) {
+        this.reviewList.remove(review);
+        for (IDataChangeListener listener : dataChangeListenerList) {
+            listener.OnDeleteCourseReviewFromCourse(this, review);
         }
     }
 
     public void setInstructorList(List<Instructor> instructorList) {
         this.instructorList = instructorList;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnCourseInstructorListUpdate(this);
+            listener.OnCourseUpdate(this);
         }
     }
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnCourseNameChanged(this);
+            listener.OnCourseUpdate(this);
         }
     }
 
     public void setRanking(Integer ranking) {
         this.ranking = ranking;
         for (IDataChangeListener listener : dataChangeListenerList) {
-            listener.OnCourseRankingChanged(this);
+            listener.OnCourseUpdate(this);
         }
     }
 
