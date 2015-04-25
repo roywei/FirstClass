@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,9 +12,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.cmu.firstclass.firstclass.R;
-
-import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -49,12 +45,12 @@ public class LoginActivity extends Activity {
                     public void run() {
                         try
                         {
-                            URL url = new URL();
+                            URL url = new URL("http://128.237.207.22:8080/FirstClassServer/Login");
                             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                             httpURLConnection.setDoOutput(true);
                             httpURLConnection.setRequestMethod("POST");
-                            httpURLConnection.setRequestProperty("userID", );
-                            httpURLConnection.setRequestProperty("password", );
+                            httpURLConnection.setRequestProperty("userID","laiw" );
+                            httpURLConnection.setRequestProperty("password", "laiw");
                             String key = null;
                             String userType = null;
                             if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -82,7 +78,6 @@ public class LoginActivity extends Activity {
                         {
                             e.printStackTrace();
                         }
-                        //!!!!!!!!!
                     }
                 }).start();
             }
@@ -99,14 +94,7 @@ public class LoginActivity extends Activity {
             }
         });
 
-        /*Button adminButton = (Button) findViewById(R.id.ui_admin_page_activity);
-        adminButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, AdminPage.class);
-                startActivity(intent);
-            }
-        });*/
+
     }
 
     @Override
