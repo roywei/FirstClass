@@ -6,7 +6,16 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * This class represents a user's profile
+ * This class represents a user's profile<br/>
+ *
+ * This class can be understood from 3 parts: identity, light weight info, heavy weight info.
+ * identity is always loaded when the class is first constructed.<br/>
+ * light weight info and heavy weight info can only be loaded when the user calls it.<br/>
+ * the difference between light weight info and heavy weight info are:<br/>
+ * 1. light weight info is updated using the whole object serialization method<br/>
+ * 2. heavy weight info is updated with the database individually, they are transient and
+ * cannot be serilized.
+ *
  */
 public class NormalUser implements Serializable {
     /**
@@ -22,12 +31,13 @@ public class NormalUser implements Serializable {
     private Integer cellNumber;
     private University university;
     private Department department;
-    private List<Course> courseWatchList;
+    private transient List<Course> courseWatchList;
 
-    public NormalUser(String userID, String name, IDataChangeListener databaseUpdateListenser) {
+    public NormalUser(String userID, String name, IDataChangeListener databaseUpdateListener) {
         this.userID = userID;
         this.name = name;
-        this.dataChangeListenerList.add(databaseUpdateListenser);
+        if(databaseUpdateListener != null)
+            this.dataChangeListenerList.add(databaseUpdateListener);
     }
 
     public List<Course> getCourseWatchList() throws ContentNotLoadedException {

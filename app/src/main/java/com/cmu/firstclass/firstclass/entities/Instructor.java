@@ -7,7 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by jialiangtan on 4/3/15.
+ * This class can be understood from 3 parts: identity, light weight info, heavy weight info.
+ * identity is always loaded when the class is first constructed.<br/>
+ * light weight info and heavy weight info can only be loaded when the user calls it.<br/>
+ * the difference between light weight info and heavy weight info are:<br/>
+ * 1. light weight info is updated using the whole object serialization method<br/>
+ * 2. heavy weight info is updated with the database individually, they are transient and
+ * cannot be serilized.
  */
 public class Instructor implements Serializable {
     /**
@@ -26,7 +32,8 @@ public class Instructor implements Serializable {
     public Instructor(String id, String name, IDataChangeListener databaseListener) {
         this.id = id;
         this.name = name;
-        this.dataChangeListenerList.add(databaseListener);
+        if(databaseListener != null)
+            this.dataChangeListenerList.add(databaseListener);
     }
 
     public void completeDetailedConstruction(

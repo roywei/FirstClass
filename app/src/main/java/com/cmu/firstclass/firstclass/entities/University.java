@@ -8,7 +8,13 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by jialiangtan on 4/3/15.
+ * This class can be understood from 3 parts: identity, light weight info, heavy weight info.
+ * identity is always loaded when the class is first constructed.<br/>
+ * light weight info and heavy weight info can only be loaded when the user calls it.<br/>
+ * the difference between light weight info and heavy weight info are:<br/>
+ * 1. light weight info is updated using the whole object serialization method<br/>
+ * 2. heavy weight info is updated with the database individually, they are transient and
+ * cannot be serilized.
  */
 public class University implements Serializable {
     /**
@@ -19,7 +25,7 @@ public class University implements Serializable {
 
     private Integer universityID;
     private String name;
-    private HashMap<Integer, Department> departmentHashMap;
+    private transient HashMap<Integer, Department> departmentHashMap;
 
     /**
      * constructs the {@link com.cmu.firstclass.firstclass.entities.University} using university id. The information about the university
@@ -29,7 +35,8 @@ public class University implements Serializable {
      */
     public University(int universityID, IDataChangeListener databaseUpdateListener) {
         this.universityID = universityID;
-        this.dataChangeListenerList.add(databaseUpdateListener);
+        if(databaseUpdateListener != null)
+            this.dataChangeListenerList.add(databaseUpdateListener);
     }
 
     public int getUniversityID() {
