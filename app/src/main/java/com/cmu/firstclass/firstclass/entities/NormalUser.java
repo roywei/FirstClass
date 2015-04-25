@@ -2,12 +2,26 @@ package com.cmu.firstclass.firstclass.entities;
 
 import com.cmu.firstclass.firstclass.entities.exceptions.ContentNotLoadedException;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
- * This class represents a user's profile
+ * This class represents a user's profile<br/>
+ *
+ * This class can be understood from 3 parts: identity, light weight info, heavy weight info.
+ * identity is always loaded when the class is first constructed.<br/>
+ * light weight info and heavy weight info can only be loaded when the user calls it.<br/>
+ * the difference between light weight info and heavy weight info are:<br/>
+ * 1. light weight info is updated using the whole object serialization method<br/>
+ * 2. heavy weight info is updated with the database individually, they are transient and
+ * cannot be serilized.
+ *
  */
-public class NormalUser {
+public class NormalUser implements Serializable {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 2577731395801979103L;
     private List<IDataChangeListener> dataChangeListenerList;
 
     private String userID;
@@ -17,12 +31,13 @@ public class NormalUser {
     private Integer cellNumber;
     private University university;
     private Department department;
-    private List<Course> courseWatchList;
+    private transient List<Course> courseWatchList;
 
-    public NormalUser(String userID, String name, IDataChangeListener databaseUpdateListenser) {
+    public NormalUser(String userID, String name, IDataChangeListener databaseUpdateListener) {
         this.userID = userID;
         this.name = name;
-        this.dataChangeListenerList.add(databaseUpdateListenser);
+        if(databaseUpdateListener != null)
+            this.dataChangeListenerList.add(databaseUpdateListener);
     }
 
     public List<Course> getCourseWatchList() throws ContentNotLoadedException {
@@ -51,7 +66,7 @@ public class NormalUser {
     public void setAndSyncDepartment(Department department) {
         this.department = department;
         for (IDataChangeListener listener : this.dataChangeListenerList) {
-            listener.OnUserUpdateDepartment(this);
+            listener.OnUserUpdate(this);
         }
     }
 
@@ -66,7 +81,7 @@ public class NormalUser {
     public void setAndSyncUniversity(University university) {
         this.university = university;
         for (IDataChangeListener listener : this.dataChangeListenerList) {
-            listener.OnUserUpdateUniversity(this);
+            listener.OnUserUpdate(this);
         }
     }
 
@@ -81,7 +96,7 @@ public class NormalUser {
     public void setAndSyncCellNumber(int cellNumber) {
         this.cellNumber = cellNumber;
         for (IDataChangeListener listener : this.dataChangeListenerList) {
-            listener.OnUserUpdateCellNumber(this);
+            listener.OnUserUpdate(this);
         }
     }
 
@@ -96,7 +111,7 @@ public class NormalUser {
     public void setAndSyncEmail(String email) {
         this.email = email;
         for (IDataChangeListener listener : this.dataChangeListenerList) {
-            listener.OnUserUpdateEmail(this);
+            listener.OnUserUpdate(this);
         }
     }
 
@@ -111,7 +126,7 @@ public class NormalUser {
     public void setAndSyncAddress(String address) {
         this.address = address;
         for (IDataChangeListener listener : this.dataChangeListenerList) {
-            listener.OnUserUpdateAddress(this);
+            listener.OnUserUpdate(this);
         }
     }
 
@@ -122,7 +137,7 @@ public class NormalUser {
     public void setAndSyncName(String name) {
         this.name = name;
         for (IDataChangeListener listener : this.dataChangeListenerList) {
-            listener.OnUserUpdateName(this);
+            listener.OnUserUpdate(this);
         }
     }
 
