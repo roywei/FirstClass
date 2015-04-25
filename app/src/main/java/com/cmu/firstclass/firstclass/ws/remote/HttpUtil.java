@@ -1,11 +1,29 @@
 package com.cmu.firstclass.firstclass.ws.remote;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 /**
  * Created by Roy on 4/24/15.
  */
 public class HttpUtil {
 
-/*    public static
+    public static HttpURLConnection getQueryHttpConnection(){
+        try {
+            URL url = new URL("queryservlet");
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setRequestMethod("POST");
+            return httpURLConnection;
+
+        }catch (...){
+
+        }
+
+
+    }
+    /*    public static
     new SomeTask(0).execute();
 
     *//** Inner class for implementing progress bar before fetching data **//*
@@ -51,6 +69,7 @@ public class HttpUtil {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setRequestMethod("POST");
+
                 httpURLConnection.setRequestProperty("userID", );
                 httpURLConnection.setRequestProperty("password", );
                 String key = null;

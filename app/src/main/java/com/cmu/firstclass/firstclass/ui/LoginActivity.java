@@ -37,9 +37,11 @@ public class LoginActivity extends Activity {
         Toast.makeText(this, String.valueOf(height)+ " " + String.valueOf(width),Toast.LENGTH_LONG).show();
 
         Button loginButton = (Button) findViewById(R.id.loginButton);
+        //loginButton.setOnClickListener(new LoginClickListener(...));
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //!!!!!!!!!
                 new Thread(new Runnable() {
                     public void run() {

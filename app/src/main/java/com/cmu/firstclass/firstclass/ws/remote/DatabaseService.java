@@ -14,6 +14,7 @@ import java.util.List;
  * Created by Roy on 4/15/15.
  */
 public class DatabaseService implements IDataChangeListener, IDatabaseService{
+
     @Override
     public void OnUserUpdate(NormalUser user) {
 
@@ -91,6 +92,31 @@ public class DatabaseService implements IDataChangeListener, IDatabaseService{
 
     @Override
     public void OnUserDeleteCourseFromWatchList(NormalUser user, int courseID) {
+
+    }
+
+    @Override
+    public void OnCourseUpdate(Course course) {
+
+    }
+
+    @Override
+    public void OnReviewUpdate(CourseReview courseReview) {
+
+    }
+
+    @Override
+    public void OnInstructorUpdate(Instructor instructor) {
+
+    }
+
+    @Override
+    public void OnAddCourseReviewToCourse(Course course, CourseReview review) {
+
+    }
+
+    @Override
+    public void OnDeleteCourseReviewFromCourse(Course course, CourseReview review) {
 
     }
 
@@ -227,6 +253,12 @@ public class DatabaseService implements IDataChangeListener, IDatabaseService{
     @Override
     public Instructor getInstructor(int id) {
         return null;
+    }
+
+    @Override
+    public boolean loginAuthenticate(String userID, String password) {
+          HttpUtil.getQueryHttpConnection();
+        return false;
     }
 
     @Override

@@ -3,7 +3,6 @@ package com.cmu.firstclass.firstclass.ws.remote;
 import com.cmu.firstclass.firstclass.entities.Course;
 import com.cmu.firstclass.firstclass.entities.CourseReview;
 import com.cmu.firstclass.firstclass.entities.Department;
-import com.cmu.firstclass.firstclass.entities.IDataChangeListener;
 import com.cmu.firstclass.firstclass.entities.Instructor;
 import com.cmu.firstclass.firstclass.entities.NormalUser;
 import com.cmu.firstclass.firstclass.entities.University;
@@ -34,6 +33,7 @@ public interface IDatabaseService {
      * loads the complete object content from database
      * @param university
      */
+    boolean loginAuthenticate(String userID, String password);
     void loadUniversity(University university);
 
     void loadUser(NormalUser user);
