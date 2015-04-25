@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.cmu.firstclass.firstclass.R;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class LoginActivity extends Activity {
@@ -35,8 +44,47 @@ public class LoginActivity extends Activity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, DepartmentListActivity.class);
-                startActivity(intent);
+                //!!!!!!!!!
+                new Thread(new Runnable() {
+                    public void run() {
+                        try
+                        {
+                            URL url = new URL();
+                            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                            httpURLConnection.setDoOutput(true);
+                            httpURLConnection.setRequestMethod("POST");
+                            httpURLConnection.setRequestProperty("userID", );
+                            httpURLConnection.setRequestProperty("password", );
+                            String key = null;
+                            String userType = null;
+                            if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                                key = httpURLConnection.getHeaderField("key");
+                                userType = httpURLConnection.getHeaderField("userType");
+                            } else {
+                                return;
+                            }
+                            if (key == null) {
+                                Toast.makeText(LoginActivity.this, "username or password incorrect", Toast.LENGTH_LONG).show();
+                            } else {
+                                Intent intent = new Intent(LoginActivity.this, DepartmentListActivity.class);
+                                startActivity(intent);
+                            }
+                        } catch (
+                                MalformedURLException e
+                                )
+
+                        {
+                            e.printStackTrace();
+                        } catch (
+                                IOException e
+                                )
+
+                        {
+                            e.printStackTrace();
+                        }
+                        //!!!!!!!!!
+                    }
+                }).start();
             }
         });
 
