@@ -6,22 +6,33 @@
         <!-- Main theme colors -->
         <!--   your app branding color for the app bar -->
 
-        <!--<item name="android:colorPrimary">@color/primary</item>
-        &lt;!&ndash;   darker variant for the status bar and contextual app bars &ndash;&gt;
-        <item name="android:colorPrimaryDark">@color/primary_dark</item>
-        &lt;!&ndash;   theme UI controls like checkboxes and text fields &ndash;&gt;-->
+        <item name="android:colorPrimary">@color/primary</item>
+        <!-- darker variant for the status bar and contextual app bars -->
+        <item name="android:colorPrimaryDark">@color/transparent_full</item>
+
+        <!-- theme UI controls like checkboxes and text fields -->
         <item name="android:colorAccent">@color/accent</item>
         <!-- text color on app bar -->
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textColorHint">@color/white_trans</item>
-        <!-- window background
-        <item name="android:windowBackground">@color/light_blue</item>
-        -->
+        <!-- window background-->
+        <item name="android:windowBackground">@color/blue_3</item>
+
 
         <!-- no action bar -->
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
     </style>
+
+    <style name="MyDialog" parent="android:Theme.DeviceDefault.Dialog">
+        <item name="android:background">@color/blue_5</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+
+
+    </style>
+
+
 
 </resources>

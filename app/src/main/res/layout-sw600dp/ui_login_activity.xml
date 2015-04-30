@@ -96,7 +96,6 @@
         android:text="@string/login_button"
         android:id="@+id/loginButton"
         android:layout_below="@+id/passwordEditText"
-        android:onClick="onClickLogin"
         android:layout_marginRight="10dp"
         android:textSize="20sp"
         android:background="@color/orange_2"/>
@@ -109,7 +108,6 @@
         android:text="@string/signup_button"
         android:id="@+id/signupButton"
         android:layout_below="@+id/loginButton"
-        android:onClick="onClickSignup"
         android:background="@color/orange_2"/>
     </LinearLayout>
 

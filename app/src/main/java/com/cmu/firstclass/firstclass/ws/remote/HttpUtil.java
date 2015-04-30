@@ -1,6 +1,10 @@
 package com.cmu.firstclass.firstclass.ws.remote;
 
+import android.util.Log;
+
+import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
@@ -8,21 +12,96 @@ import java.net.URL;
  */
 public class HttpUtil {
 
-    public static HttpURLConnection getQueryHttpConnection(){
-        try {
-            URL url = new URL("queryservlet");
-            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+    final static String loginAddress = "http://128.237.207.22:8080/FirstClassServer/Login";
+    private URL url;
+    private HttpURLConnection httpURLConnection;
 
-            httpURLConnection.setDoOutput(true);
-            httpURLConnection.setRequestMethod("POST");
-            return httpURLConnection;
+    public HttpUtil(String request){
 
-        }catch (...){
+       final  String code = request;
 
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    //connect to different location upon request
+                    switch (code) {
+
+                        case "login": url = new URL(loginAddress);
+                            break;
+                        //other cases
+
+                    }
+
+                    httpURLConnection = (HttpURLConnection) url.openConnection();
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setRequestMethod("POST");
+
+                }catch (MalformedURLException e){
+
+                }catch (IOException e){
+
+                }
+            }
+        }).start();
+
+
 
 
     }
+
+    public void setRequestProperty(String key, String params){
+        httpURLConnection.setRequestProperty(key,params);
+
+    }
+    public boolean getResponseStatus (){
+        try {
+            if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) return true;
+            Log.i("XXXXXX","inside get code try");
+        }catch (IOException e){
+
+        }
+
+        return  false;
+    }
+
+    public String getHeaderField(String key){
+        return httpURLConnection.getHeaderField(key);
+
+    }
+
+    //private static HttpURLConnection httpURLConnection;
+
+
+   /* public static HttpURLConnection getQueryHttpConnection(){
+        Log.i("xxx", "inside http service");
+
+        new Thread(new Runnable() {
+            public void run() {
+        try {
+            URL url = new URL(loginAddress);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setRequestMethod("POST");
+            Log.i("xxx", "inside http service try");
+            return httpURLConnection;
+
+
+        }catch (MalformedURLException e){
+            Log.i("xxx", "mail url exception");
+
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+            Log.i("xxx", "ioexception");
+
+        }
+
+        }
+        }).start();
+
+
+    }*/
     /*    public static
     new SomeTask(0).execute();
 
