@@ -20,7 +20,7 @@ import java.net.URL;
  */
 public class LoginTask extends AsyncTask<Void, Void, Integer>{
 
-    private final static String loginAddress = "http://128.237.192.203:8080/FirstClassServer/Login";
+    private final static String loginAddress = "http://128.237.203.138:8080/FirstClassServer/Login";
 
     private final String account;
     private final String password;
