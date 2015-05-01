@@ -11,10 +11,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.cmu.firstclass.firstclass.R;
-import com.cmu.firstclass.firstclass.ws.remote.LoginTask;
+import com.cmu.firstclass.firstclass.ws.remote.DatabaseTask;
 
 
 public class LoginActivity extends Activity {
+
+    //private static String receivedMsg;
+    String user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +48,16 @@ public class LoginActivity extends Activity {
 
                 String account = accountEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
+                if(account.equals("") || password.equals("")){
+                    Toast.makeText(LoginActivity.this,"Empty Account/Password",Toast.LENGTH_SHORT).show();
+                }else {
+                    String msg = "<#LOGIN#>" + account + "|" + password;
+
+                    new DatabaseTask(msg, LoginActivity.this, getApplicationContext()).execute();
+                }
 
 
-                new LoginTask(account,password, LoginActivity.this,getApplicationContext()).execute();
+
 
 
             }
@@ -65,6 +75,8 @@ public class LoginActivity extends Activity {
 
 
     }
+
+
 
 
 
